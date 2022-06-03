@@ -71,8 +71,20 @@ function App() {
       </div>
         <br />
 
-
         
+        {movieReviewList.map((val) => {
+          return (
+            <div className="mycard">
+            <h1>{val.movieName} </h1> 
+            <p>{val.movieReview}</p>
+
+              <button type='button' onClick={()=>{deleteMovie(val.movieName)}}>Delete</button>
+              <input id="myInput" type="text" onChange={(e) => {setNewmovieReview(e.target.value)}} />
+              <button type='button' onClick={()=>{updateMovie(val.movieName)}} >Update</button>
+
+            </div>
+            );
+        })}
     </div>
   );
 }
